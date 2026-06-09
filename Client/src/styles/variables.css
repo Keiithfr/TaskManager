@@ -1,0 +1,47 @@
+:root {
+    /* colors */
+
+    --bg: #111827;
+    --text: #ffffff;
+    --muted: #a09595;
+    --card-bg: #1f2937;
+
+
+    /*spacing*/
+    --space-sm: 10px;
+    --space-md: 20px;
+    --space-lg: 40px;
+
+    /*sizing*/
+
+    --radius: 10px;
+    --radius-sm: 6px;
+
+    /*transition*/
+
+    --transition: all 0.3s ease;
+
+    /*font sizes*/
+    --text-xs: 12px;
+    --text-sm: 14px;
+    --text-md: 16px;
+    --text-lg: 20px;
+    --text-xl: 28px;
+    --text-2xl: 36px;
+    --text-3xl: 48px;
+
+
+    /*font weights*/
+
+    --weight-regular: 400;
+    --weight-medium: 500;
+    --weight-bold: 700;
+
+    /*line heights*/
+
+    --lh-tight: 1.1;
+    --lh-normal: 1.5;
+
+
+
+}
