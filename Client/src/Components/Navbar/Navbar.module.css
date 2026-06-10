@@ -1,0 +1,42 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-md);
+}
+
+.logodiv {
+    display: flex;
+    gap: var(--space-sm);
+    align-items: center;
+}
+
+.logodiv span {
+    color: var(--button-cl);
+    font-size: var(--text-xl);
+    font-weight: var(--weight-bold);
+}
+
+.logo {
+    color: var(--button-cl);
+    font-size: var(--text-xl);
+    font-weight: var(--weight-bold);
+}
+
+.actionsdiv {
+    display: flex;
+    gap: var(--space-sm);
+}
+
+.actionsdiv button {
+    background-color: var(--button-cl);
+    padding: var(--space-sm);
+    border-radius: var(--radius);
+    color: var(--text);
+    font-weight: var(--weight-medium);
+    cursor: pointer;
+}
+
+.actionsdiv button:hover {
+    opacity: 0.8;
+}
