@@ -1,5 +1,8 @@
 import './styles/variables.css';
 import Navbar from './Components/Navbar/Navbar';
+import { Routes, Route } from "react-router-dom";
+import Login from './Pages/Login/Login';
+import Signup from './Pages/Signup/Signup';
 
 function App() {
 
@@ -7,9 +10,15 @@ function App() {
     <>
       <Navbar />
 
-      <main>
-        <h1>Welcome to Loscar</h1>
-      </main>
+      <Routes>
+        <Route path='/login' element={<Login />} />
+        <Route path='/signup' element={<Signup />} />
+
+      </Routes>
+
+
+
+
 
     </>
   )
