@@ -1,7 +1,6 @@
+import dotenv from "dotenv/config";
 import express from "express";
 import cors from "cors";
-import dotenv from "dotenv";
-dotenv.config();
 import { connectDB } from "./db/connect.js"
 import authRoutes from "./routes/auth.js"
 
@@ -16,6 +15,7 @@ app.use(express.json());
 
 await connectDB();
 app.use("/api/auth", authRoutes);
+
 
 app.listen(5000, () => {
     console.log("Server running on http://localhost:5000");
