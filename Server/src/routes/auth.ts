@@ -1,4 +1,5 @@
 import { Router } from "express";
+import "express";
 import { User } from "../models/User.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
@@ -11,9 +12,13 @@ if (!JWT_SECRET) {
     throw new Error("JWT_SECRET is missing")
 }
 
-interface AuthRequest extends Request {
-    user?: AuthPayload;
-};
+declare global {
+    namespace Express {
+        interface Request {
+            user?: AuthPayload; 
+        }
+    }
+}
 interface AuthPayload extends jwt.JwtPayload {
     id: string;
 }
@@ -105,11 +110,22 @@ router.post("/login", async (req, res) => {
             message: "Server error"
         })
     }
+});
+router.post("/logout", (req, res) => {
+    res.clearCookie("token", {
+        httpOnly: true,
+        secure: false, //for development
+        sameSite: "lax" //for development
+
+    });
+    res.json({
+        message: "Logged out"
+    });
+});
 
 
-})
 
-const authMiddleware = (req: AuthRequest,
+const authMiddleware = (req: Request,
     res: Response,
     next: NextFunction) => {
     const token = req.cookies.token;
@@ -131,7 +147,22 @@ const authMiddleware = (req: AuthRequest,
             message: "Invalid login token"
         })
     }
-}
+};
+
+router.get("/me", authMiddleware, async (req, res) => {
+    try {
+
+        const user = await User.findById(req.user!.id)
+            .select("-password");
+        res.json(user);
+    } catch (err) {
+        res.status(500).json({
+            message: "Server error"
+        });
+    }
+
+});
+
 
 
 export default router;
