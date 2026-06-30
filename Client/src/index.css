@@ -1,8 +1,9 @@
-*{
+* {
   box-sizing: border-box;
 }
+
 body {
-  background-color:whitesmoke;
+  background-image: url("./bcg.jpg");
 }
 
 
