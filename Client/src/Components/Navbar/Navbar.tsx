@@ -1,5 +1,6 @@
 import { FaTasks } from "react-icons/fa";
 import styles from "./Navbar.module.css";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
 
@@ -10,7 +11,9 @@ const Navbar = () => {
                 <span>Loscar</span>
             </div>
             <div className={styles.actionsdiv}>
-                <button>Log in</button>
+                <Link to="/login" className={styles.Link}>Log in</Link>
+                <Link to="/signup" className={styles.Link}>Sign up</Link>
+
 
             </div>
 

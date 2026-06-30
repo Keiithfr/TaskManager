@@ -12,14 +12,14 @@
 }
 
 .logodiv span {
-    color: var(--button-cl);
-    font-size: var(--text-xl);
+    color: var(--text);
+    font-size: var(--text-lg);
     font-weight: var(--weight-bold);
 }
 
 .logo {
-    color: var(--button-cl);
-    font-size: var(--text-xl);
+    color: var(--text);
+    font-size: var(--text-lg);
     font-weight: var(--weight-bold);
 }
 
@@ -28,15 +28,20 @@
     gap: var(--space-sm);
 }
 
-.actionsdiv button {
-    background-color: var(--button-cl);
+
+.Link {
+    background-color: rgb(22, 21, 21);
     padding: var(--space-sm);
-    border-radius: var(--radius);
+    border-radius: var(--radius-lg);
     color: var(--text);
     font-weight: var(--weight-medium);
+    font-size: var(--text-sm);
+    text-decoration: none;
     cursor: pointer;
 }
 
-.actionsdiv button:hover {
-    opacity: 0.8;
+.Link:hover {
+    transition: var(--transition);
+    background-color: var(--text);
+    color: rgb(22, 21, 21);
 }
