@@ -5,7 +5,7 @@ import type { ChangeEvent } from 'react';
 import type { SubmitEvent } from 'react';
 
 const Signup = () => {
-    const [form, setForm] = useState({ email: "", password: "" });
+    const [form, setForm] = useState({ name: "", email: "", password: "" });
     const [message, setMessage] = useState("");
     const navigate = useNavigate();
     const [loading, setLoading] = useState(false);
@@ -29,11 +29,13 @@ const Signup = () => {
                 body: JSON.stringify(form),
             });
 
+            console.log(`${import.meta.env.VITE_API_URL}/signup`);
+
             const data = await res.json();
             if (!res.ok) throw new Error(data.message);
 
             setMessage(data.message);
-            setForm({ email: "", password: "" });
+            setForm({ name: "", email: "", password: "" });
             navigate("/login");
 
         } catch (err) {
@@ -55,8 +57,14 @@ const Signup = () => {
         <form onSubmit={handleSubmit} className={styles.signupForm}>
             <h2>Sign up</h2>
             <input
+                name="name"
+                placeholder="name"
+                onChange={handleChange}
+                value={form.name}
+                disabled={loading} />
+            <input
                 name="email"
-                placeholder="Email"
+                placeholder="email"
                 onChange={handleChange}
                 value={form.email}
                 disabled={loading} />
