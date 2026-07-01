@@ -23,6 +23,9 @@ const AuthProvider = ({ children }: Props) => {
                     const data = await res.json();
                     setUser(data);
                 }
+                else if (res.status === 401) {
+                    setUser(null);
+                }
             } catch (err) {
                 if (err instanceof Error) {
                     console.log(err)
