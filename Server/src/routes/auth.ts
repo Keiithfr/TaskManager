@@ -75,14 +75,14 @@ router.post("/login", async (req, res) => {
 
         if (!user) {
             return res.status(400).json({
-                message: "Email entered is not linked to an account"
+                message: "Invalid email or password"
             });
         }
 
         const isMatch = await bcrypt.compare(password, user.password);
         if (!isMatch) {
             return res.status(400).json({
-                message: "Password is incorrect"
+                message: "Invalid email or password"
             });
         }
 
@@ -101,6 +101,7 @@ router.post("/login", async (req, res) => {
         res.json({
             user: {
                 id: user._id,
+                name: user.name,
                 email: user.email
             }
         });
