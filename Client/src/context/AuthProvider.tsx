@@ -11,6 +11,9 @@ const AuthProvider = ({ children }: Props) => {
     const [user, setUser] = useState<User | null>(null);
     const [loading, setLoading] = useState(true);
 
+
+
+
     useEffect(() => {
         const fetchUser = async () => {
             try {
@@ -35,7 +38,9 @@ const AuthProvider = ({ children }: Props) => {
             }
         };
 
+
         fetchUser();
+
 
     }, []);
 
@@ -52,6 +57,13 @@ const AuthProvider = ({ children }: Props) => {
             }
             );
             setUser(null);
+
+
+
+
+
+
+
         } catch (err) {
             if (err instanceof Error) {
                 console.log(err)
