@@ -1,0 +1,256 @@
+.hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: var(--space-lg);
+    margin-top: var(--space-lg);
+}
+
+.hero button {
+    border-radius: var(--space-lg);
+    padding: var(--space-m);
+    font-weight: var(--weight-bold);
+    transition: var(--transition);
+    cursor: pointer;
+    background: transparent;
+    color: var(--text);
+    border: 1.5px solid #fff;
+}
+
+.buttonsDiv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+    margin-top: var(--space-sm);
+}
+
+.hero button:hover {
+    transform: scale(1.05);
+
+}
+
+.heroContent {
+
+    border-radius: var(--space-m);
+
+}
+
+.hero h1 {
+    font-size: clamp(1.5rem, 6vw, 3rem);
+    color: var(--text);
+
+}
+
+.hero span {
+    margin-top: var(--space-m);
+}
+
+.hero p {
+    font-size: 1.2rem;
+    max-width: 650px;
+    line-height: 1.6;
+    color: #94A3B8;
+    font-weight: var(--weight-bold);
+}
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-lg);
+
+}
+
+.taskManagement {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: transform .25s ease, border-color .25s ease;
+    border-radius: var(--space-m);
+    padding: var(--space-m);
+    cursor: pointer;
+}
+
+.taskManagement h3 {
+    color: var(--text);
+}
+
+.taskManagement:hover {
+    border-color: 1px solid #fff;
+    transform: scale(1.05);
+}
+
+
+.tick {
+    color: var(--text);
+}
+
+.top {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-m);
+}
+
+.about {
+    display: grid;
+    grid-template-columns: 1fr;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: transform .25s ease, border-color .25s ease;
+    border-radius: var(--space-m);
+    padding: var(--space-lg);
+    cursor: pointer;
+    max-width: 600px;
+    margin: 0 auto;
+
+
+}
+
+.aboutContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--text);
+}
+
+.about h3 {
+    color: var(--text);
+    font-size: var(--text-xl);
+}
+
+.about p {
+    font-size: var(--text-lg);
+    color: #94A3B8;
+    font-weight: var(--weight-bold);
+
+}
+
+.technologies {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: var(--space-lg);
+}
+
+.technologies h3 {
+    color: var(--text);
+    font-size: var(--text-xl);
+}
+
+
+.technologiesMain {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+
+
+}
+
+.techCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    background: rgba(255, 255, 255, .05);
+    border: 1px solid rgba(255, 255, 255, .08);
+    border-radius: 16px;
+    transition: transform .25s ease, border-color .25s ease;
+    cursor: pointer;
+
+}
+
+.techCard:hover {
+    transform: scale(1.05);
+}
+
+.techCard img {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+    margin-bottom: 1rem;
+
+}
+
+.contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-lg);
+}
+
+.contact h2 {
+    color: var(--text);
+}
+
+.contact p {
+    color: var(--text);
+}
+
+.contact span {
+    color: #94A3B8;
+    font-weight: var(--weight-bold);
+}
+
+.footer {
+    padding: var(--space-lg) var(--space-lg);
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, .08);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.footer h3 {
+    color: var(--text);
+    font-weight: var(--weight-bold);
+}
+
+.footer small {
+    color: var(--text);
+    font-weight: var(--weight-bold);
+}
+
+.footerLinks {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-md);
+}
+
+.footerLinks a {
+    color: #94A3B8;
+    text-decoration: none;
+    transition: color .25s ease;
+}
+
+.footerLinks a:hover {
+    color: white;
+}
+
+.socials {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    font-size: 1.5rem;
+}
+
+.socials img {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+    margin-bottom: 1rem;
+
+}
