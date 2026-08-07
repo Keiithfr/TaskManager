@@ -24,7 +24,7 @@ const Login = () => {
         setMessage("");
 
         try {
-            const res = await fetch(`${import.meta.env.VITE_API_URL}/login`, {
+            const res = await fetch(`${import.meta.env.VITE_API_URL}/auth/login`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -60,7 +60,7 @@ const Login = () => {
 
     return (
         <form onSubmit={handleSubmit} className={styles.loginForm}>
-            <h2>Login</h2>
+            <h2>Sign In</h2>
             <input name='email'
                 placeholder='email'
                 value={form.email}
@@ -74,9 +74,9 @@ const Login = () => {
                 disabled={loading} />
 
             <button type='submit' disabled={loading}>
-                {loading ? "Logging in..." : "Login"}
+                {loading ? "Signing in..." : "Sign In"}
             </button>
-            <p>Don't have an account? <Link to="/signup">Signup</Link></p>
+            <p>Don't have an account? <Link to="/signup" className={styles.pLink}>Signup</Link></p>
 
             {message && <p>{message}</p>}
 

@@ -20,7 +20,7 @@ const Signup = () => {
         setMessage("");
 
         try {
-            const res = await fetch(`${import.meta.env.VITE_API_URL}/signup`, {
+            const res = await fetch(`${import.meta.env.VITE_API_URL}/auth/signup`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -80,7 +80,7 @@ const Signup = () => {
                 {loading ? "Creating account..." : "Sign up"}
             </button>
             <p>
-                Already have an account?<Link to="/Login">Login</Link>
+                Already have an account?<Link to="/Login" className={styles.pLink}>Login</Link>
             </p>
             {message && <p>{message}</p>}
         </form>

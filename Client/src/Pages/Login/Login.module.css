@@ -24,8 +24,9 @@
 
 .loginForm button {
     padding: var(--space-sm);
-    border-radius: var(--radius);
+    border-radius: var(--space-m);
     cursor: pointer;
+    font-weight: var(--weight-bold);
 
 }
 
@@ -47,4 +48,8 @@
     font-weight: var(--weight-medium);
     color: var(--text);
     font-size: var(--text-lg);
+}
+
+.pLink {
+    color: #94A3B8;
 }
