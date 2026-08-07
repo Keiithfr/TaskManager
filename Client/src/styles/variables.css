@@ -7,17 +7,22 @@
     --card-bg: #1f2937;
     --button-cl: #232af7;
     --bg2: #a57bb3;
+    --dark-txt: #0f0f0f;
 
 
     /*spacing*/
     --space-sm: 10px;
     --space-m: 15px;
     --space-md: 20px;
+    --space-nml: 32px;
     --space-lg: 40px;
+    --space-xl: 64px;
+    --space-2xl: 80px;
 
     /*sizing*/
 
     --radius: 10px;
+    --radius-md: 20px;
     --radius-sm: 6px;
     --radius-lg: 40px;
 
