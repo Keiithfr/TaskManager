@@ -2,46 +2,106 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: var(--space-md);
+    padding: var(--space-md) var(--space-nml);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+
+}
+
+.logodiv,
+.actionsdiv,
+.btndiv {
+    flex: 1;
 }
 
 .logodiv {
     display: flex;
+    justify-content: flex-start;
     gap: var(--space-sm);
     align-items: center;
+
 }
 
 .logodiv span {
-    color: var(--text);
+    color: var(--dark-txt);
     font-size: var(--text-lg);
+
     font-weight: var(--weight-bold);
+
 }
 
 .logo {
-    color: var(--text);
+    color: var(--dark-txt);
     font-size: var(--text-lg);
     font-weight: var(--weight-bold);
 }
 
 .actionsdiv {
     display: flex;
+    justify-content: center;
     gap: var(--space-sm);
 }
 
 
 .Link {
-    background-color: rgb(22, 21, 21);
+    background: transparent;
     padding: var(--space-sm);
-    border-radius: var(--radius-lg);
-    color: var(--text);
+    border: none;
+    border-radius: var(--space-m);
+    font-size: var(--text-xs);
+    color: var(--dark-txt);
     font-weight: var(--weight-medium);
-    font-size: var(--text-sm);
+    font-family: Inter;
     text-decoration: none;
     cursor: pointer;
+    transition: var(--transition);
 }
 
 .Link:hover {
+
+    background-color: blue;
+    color: var(--text);
+
+}
+
+.span {
+    color: var(--dark-txt);
+    font-size: var(--text-sm);
+}
+
+p {
+    color: var(--dark-txt);
+    font-size: var(--text-sm);
+
+}
+
+
+.btndiv {
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--space-sm);
+}
+
+
+.navbar button {
+    background: transparent;
+    color: var(--dark-txt);
+    border: none;
+    cursor: pointer;
+    border-radius: var(--space-m);
+    padding: var(--space-sm);
     transition: var(--transition);
-    background-color: var(--text);
-    color: rgb(22, 21, 21);
+
+
+}
+
+.navbar button:hover {
+    background-color: blue;
+    color: var(--text);
 }
