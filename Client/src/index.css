@@ -13,7 +13,9 @@
 }
 
 #root {
-  height: 100%;
+  min-height: 100%;
+  width: 100%;
+  --navbar-height: 84px;
 }
 
 html {
@@ -27,6 +29,7 @@ body {
   height: 100%;
   margin: 0;
   min-height: 100vh;
+
   background: linear-gradient(160deg,
       #f5f5f7 0%,
       #ffffff 50%,
