@@ -4,6 +4,8 @@ import { User } from "../models/User.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import type { Request, Response, NextFunction } from "express";
+import { forgotPasswordController } from "../controllers/forgotPasswordController.js";
+import { resetPasswordController } from "../controllers/resetPasswordController.js";
 
 const router = Router();
 
@@ -123,6 +125,9 @@ router.post("/logout", (req, res) => {
         message: "Logged out"
     });
 });
+
+router.post("/forgot-password", forgotPasswordController);
+router.post("/reset-Password/:token", resetPasswordController);
 
 
 
