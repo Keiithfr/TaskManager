@@ -3,11 +3,18 @@ import styles from "./Navbar.module.css";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 import { useLocation } from "react-router-dom";
+import { useState } from "react";
+import { FiMenu, FiX } from "react-icons/fi";
 
 const Navbar = () => {
 
     const { user, logout, } = useAuth()
     const navigate = useNavigate();
+    const [menuOpen, setMenuOpen] = useState(false);
+
+    const handleMenuLinkClick = () => {
+        setMenuOpen(false);
+    };
 
     const handleLogout = () => {
         logout();
@@ -42,21 +49,29 @@ const Navbar = () => {
                         </div>
 
                     </>)
-                    : (isLandingPage && (
+                    : (!user && isLandingPage && (
                         <>
 
-                            <div className={styles.actionsdiv}>
-                                <a href="#home" className={styles.Link}>Home</a>
-                                <a href="#features" className={styles.Link}>Features</a>
-                                <a href="#about" className={styles.Link}>About</a>
-                                <a href="#technologies" className={styles.Link}>Technologies</a>
-                                <a href="#contact" className={styles.Link}>Contact</a>
+                            <div className={`${styles.actionsdiv} ${menuOpen ? styles.menuOpen : ""
+                                }`}>
+                                <a href="#home" className={styles.Link} onClick={handleMenuLinkClick}>Home</a>
+                                <a href="#features" className={styles.Link} onClick={handleMenuLinkClick}>Features</a>
+                                <a href="#about" className={styles.Link} onClick={handleMenuLinkClick}>About</a>
+                                <a href="#technologies" className={styles.Link} onClick={handleMenuLinkClick}>Technologies</a>
+                                <a href="#contact" className={styles.Link} onClick={handleMenuLinkClick}>Contact</a>
+
+                                <div className={styles.btndiv}>
+                                    <button onClick={handleLogIn}>Sign In</button>
+                                </div>
 
                             </div>
+                            <button className={styles.menuButton}
+                                onClick={() => setMenuOpen(!menuOpen)}
+                                aria-label="Toggle navigation menu">
+                                {menuOpen ? <FiX /> : <FiMenu />}
+                            </button>
 
-                            <div className={styles.btndiv}>
-                                <button onClick={handleLogIn}>Sign In</button>
-                            </div>
+
 
 
 
