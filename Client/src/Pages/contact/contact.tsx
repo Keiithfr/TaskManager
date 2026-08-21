@@ -27,6 +27,8 @@ const Contact = () => {
 
         if (loading) return;
 
+
+
         try {
             const res = await fetch(`${import.meta.env.VITE_API_URL}/contact`, {
                 method: "POST",
@@ -127,7 +129,7 @@ const Contact = () => {
 
                 <div className={styles.info}>
                     <h3>if you have any questions,please feel free to get in touch with us via phone,text,email,
-                        the form below or even on social media.
+                        the form attached or even on social media.
                     </h3>
                     <div className={styles.contactInfo}>
                         <div className={styles.h2Container}>

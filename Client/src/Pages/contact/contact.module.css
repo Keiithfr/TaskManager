@@ -41,7 +41,7 @@
 .field {
     display: flex;
     flex-direction: column;
-    grid-area: .5rem;
+    gap: .5rem;
 }
 
 .message {
@@ -98,11 +98,11 @@ button {
     padding: 1rem;
 }
 
-.info h3{
+.info h3 {
     color: gray;
     font-size: var(--text-md);
 }
-    
+
 .contactInfo {
     display: flex;
     flex-direction: column;
@@ -146,16 +146,122 @@ button {
     margin-top: 0;
 }
 
-.hours{
+.hours {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 3rem;
 }
 
-.individualHours{
+.individualHours {
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: .5rem;
+}
+
+
+@media (max-width:767px) {
+
+    .contactSection {
+        height: auto;
+        min-height: auto;
+
+        display: grid;
+        grid-template-columns: 1fr;
+
+        padding: 5rem 1rem 4rem;
+        gap: 4rem;
+    }
+
+    .formDiv {
+        width: 100%;
+        max-width: 500px;
+        margin-inline: auto;
+        padding: 0;
+    }
+
+    .formDiv h1 {
+        align-self: center;
+        text-align: center;
+    }
+
+    .formContainer {
+        width: 100%;
+    }
+
+    .contactForm {
+        width: 100%;
+        max-width: none;
+
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+
+        padding: 1rem;
+    }
+
+    .field {
+        width: 100%;
+    }
+
+    .contactForm input,
+    .contactForm textarea {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .message {
+        width: 100%;
+        grid-column: auto;
+    }
+
+    .contactForm button {
+        width: 100%;
+    }
+
+    .info {
+        width: 100%;
+        max-width: 500px;
+        margin-inline: auto;
+        padding: 0;
+    }
+
+    .info>h3 {
+        width: 100%;
+        text-align: center;
+    }
+
+    .contactInfo {
+        width: 100%;
+    }
+
+    .individualInfoContainer {
+        width: 100%;
+        max-width: none;
+
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .individualInfo {
+        padding: 1rem;
+    }
+
+    .businessHours {
+        width: 100%;
+    }
+
+    .hours {
+        width: 100%;
+
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+
+        gap: 1rem;
+    }
+
+
+
+
 }
