@@ -31,28 +31,35 @@ const Home = () => {
         <>
 
             <section id='home' className={styles.hero}>
+                <div className={styles.heroContent}>
 
 
-                <div className={styles.logodiv}>
-                    <FaTasks className={styles.logo} />
+                    <div className={styles.logodiv}>
+                        <FaTasks className={styles.logo} />
+                    </div>
+
+                    <h1>
+                        Think,plan, and track
+                    </h1>
+                    <h2>
+                        all in one place
+                    </h2>
+
+
+                    <p className={styles.heroDescription}>Manage your tasks, track your progress, and never miss a deadline
+                        -all in one simple workspace.
+                    </p>
+
+                    <div className={styles.buttonsDiv}>
+                        <button onClick={handleGetStarted}>Get Started</button>
+                        <button onClick={handleLogIn}>{user ? "Dashboard" : "Sign In"}</button>
+                    </div>
+
+
+
                 </div>
 
-                <h1>
-                    Think,plan, and track
-                </h1>
-                <h2>
-                    all in one place
-                </h2>
 
-
-                <p>Manage your tasks, track your progress, and never miss a deadline
-                    -all in one simple workspace.
-                </p>
-
-                <div className={styles.buttonsDiv}>
-                    <button onClick={handleGetStarted}>Get Started</button>
-                    <button onClick={handleLogIn}>{user ? "Dashboard" : "Sign In"}</button>
-                </div>
 
                 <div className={styles.integrations}>
                     <p>100+ integrations</p>
@@ -379,11 +386,17 @@ const Home = () => {
 
                 </nav>
 
-                {/* <div className={styles.socials}>
-                    <img src="github-icon.svg" alt="node" />
-                    <img src="google-gmail.svg" alt="node" />
+                <div className={styles.socials}>
+                    <a href="https://github.com/..." aria-label="GitHub">
+                        <img src="github-icon.svg" alt="" />
+                    </a>
 
-                </div> */}
+                    <a href="mailto:loscarcorp600@gmail.com" aria-label="Email us">
+                        <img src="google-gmail.svg" alt="" />
+                    </a>
+                </div>
+
+
 
                 <small>© 2026 loscar. All rights reserved.</small>
 

@@ -2,21 +2,30 @@
     min-height: 100vh;
     width: 100%;
     position: relative;
+
+    scroll-margin-top: var(--navbar-height);
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: var(--space-md);
-    padding-top: 10rem;
+    padding-top: clamp(6rem, 12vh, 10rem);
     overflow: visible;
     background: linear-gradient(180deg,
             #f7ede2,
             #fdfdfd);
 
+}
 
+.heroContent {
+    width: min(100%, 700px);
 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-
+    text-align: center;
 }
 
 .hero button {
@@ -67,7 +76,7 @@
 
 .hero h1 {
     margin: 0;
-    font-size: clamp(3rem, 7vw, 5rem);
+    font-size: clamp(4rem, 7vw, 5rem);
     color: var(--dark-txt);
 
 }
@@ -79,20 +88,23 @@
 }
 
 
-.hero p {
-    max-width: 500px;
+.heroDescription {
+    width: min(100%, 500px);
     margin: 0;
     line-height: 1.6;
+    text-align: center;
     color: var(--dark-txt);
 }
 
 .features {
     min-height: 100vh;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 2rem;
+    padding: 6rem 1rem;
 
 
 }
@@ -103,8 +115,14 @@
     flex-direction: column;
     align-items: center;
     gap: 2rem;
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto 3rem;
+}
 
-
+.featuresHeading h1 {
+    font-size: 2.5rem;
+    line-height: 1.1;
 }
 
 .featuresGrid {
@@ -374,77 +392,81 @@
     color: var(--muted);
 }
 
-.contact {
+
+
+.footer {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    padding: var(--space-lg);
-}
+    gap: 1.5rem;
 
-.contact h2 {
-    color: var(--dark-text);
-}
+    padding: 4rem 2rem 2rem;
 
-.contact p {
-    color: var(--muted);
-}
+    color: #111;
 
-.contact span {
-    color: #94A3B8;
-    font-weight: var(--weight-bold);
-}
-
-.footer {
-    padding: var(--space-lg) var(--space-lg);
     text-align: center;
-    border-top: 1px solid rgba(255, 255, 255, .08);
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-md);
-
 }
 
-.footer h3 {
-    color: var(--text);
-    font-weight: var(--weight-bold);
-}
-
-.footer small {
-    color: var(--text);
-    font-weight: var(--weight-bold);
+.footer p {
+    margin: 0;
+    color: #aaa;
+    font-size: 0.95rem;
+    font-weight: 800;
 }
 
 .footerLinks {
     display: flex;
+    align-items: center;
     justify-content: center;
-    gap: var(--space-md);
+    gap: 2rem;
 }
 
 .footerLinks a {
-    color: #94A3B8;
+    color: #111;
     text-decoration: none;
-    transition: color .25s ease;
+    font-size: 0.9rem;
+
+    transition: color 0.2s ease;
 }
 
 .footerLinks a:hover {
-    color: white;
+    color: red;
 }
 
 .socials {
     display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-    font-size: 1.5rem;
+    align-items: center;
+    gap: 1rem;
 }
 
 .socials img {
-    width: 70px;
-    height: 70px;
+    width: 24px;
+    height: 24px;
     object-fit: contain;
-    margin-bottom: 1rem;
 
+    cursor: pointer;
+    transition: transform 0.2s ease;
 }
+
+.socials img:hover {
+    transform: translateY(-3px);
+}
+
+.footer small {
+    padding-top: 1rem;
+
+    width: 100%;
+    max-width: 900px;
+
+    border-top: 1px solid #333;
+
+    color: #111;
+    font-size: 0.75rem;
+}
+
+
+
+
 
 
 .integrations {
@@ -917,4 +939,196 @@
 
 .avatars img:first-child {
     margin-left: 0;
+}
+
+@media(max-width:767px) {
+    .hero {
+        min-height: auto;
+        padding: 6rem 1rem 4rem;
+        padding-top: 8rem;
+        padding-bottom: 1rem;
+        position: relative;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    .heroContent {
+        width: 100%;
+        max-width: 500px;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: .5rem;
+
+        text-align: center;
+    }
+
+    .hero h1 {
+        font-size: 2.4rem;
+        line-height: 1.05;
+        max-width: 330px;
+    }
+
+    .hero h2 {
+        font-size: 2rem;
+        line-height: 1.1;
+    }
+
+    .heroDescription {
+        width: 100%;
+        max-width: 320px;
+        text-align: center;
+    }
+
+    .buttonsDiv {
+        flex-direction: column;
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .hero button {
+        width: 100%;
+    }
+
+    /* Decorative elements */
+    .notes,
+    .reminders,
+    .transparentdiv,
+    .transparentdiv2,
+    .taskCard,
+    .integrations {
+        display: none;
+    }
+
+    /* .taskCard {
+        position: relative;
+        left: auto;
+        bottom: auto;
+        width: 100%;
+        max-width: 350px;
+        transform: none;
+        margin-top: 2rem;
+        box-sizing: border-box;
+    }
+
+    .integrations {
+        position: relative;
+        right: auto;
+        bottom: auto;
+        transform: none;
+        margin: 1rem 0 0;
+        width: fit-content;
+    } */
+
+    .featuresHeading h1 {
+        font-size: 2rem;
+    }
+
+    .featuresHeading p {
+        max-width: 330px;
+        margin-inline: auto;
+    }
+
+
+    .featuresGrid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .about {
+        grid-template-columns: 1fr;
+    }
+
+    .aboutContent {
+        margin-left: 0;
+        padding: 20px;
+        max-width: none;
+        align-items: center;
+        text-align: center;
+    }
+
+    .aboutImgDiv {
+        width: 100%;
+        max-width: 340px;
+        height: 260px;
+    }
+
+    .aboutStats {
+        width: 100%;
+        max-width: 340px;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 20px;
+    }
+
+    .aboutShowCase {
+        width: 100%;
+    }
+
+    .aboutContent h2 {
+        font-size: var(--text-3xl);
+    }
+
+    .aboutContent h3 {
+        text-align: center;
+    }
+
+    .aboutContent p {
+        margin-top: 1.5rem;
+        text-align: center;
+    }
+
+    .technologies {
+        min-height: auto;
+        height: auto;
+        padding: 3rem 1rem;
+
+
+    }
+
+    .technologiesMain {
+        width: 100%;
+        max-width: 340px;
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .techCard {
+        padding: 1.5rem;
+    }
+
+    .technologies h3 {
+        font-size: var(--text-lg);
+        text-align: center;
+    }
+
+    .footer {
+        width: 100%;
+        padding: 1rem 1rem 1.5rem;
+        gap: 1.5rem;
+    }
+
+    .footerLinks {
+        width: 100%;
+        flex-wrap: wrap;
+        gap: 1rem 1.5rem;
+    }
+
+    .socials {
+        gap: 1rem;
+    }
+
+    .footer small {
+        width: 100%;
+        max-width: 100%;
+        padding-top: 1rem;
+    }
+
+
+
+
+
 }
