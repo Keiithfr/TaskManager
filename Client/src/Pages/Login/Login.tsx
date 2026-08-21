@@ -4,6 +4,12 @@ import type { ChangeEvent } from 'react';
 import type { SubmitEvent } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
+import { FaArrowRightToBracket } from "react-icons/fa6";
+import { MdEmail } from "react-icons/md";
+import { IoMdLock } from "react-icons/io";
+
+
+
 
 
 const Login = () => {
@@ -59,29 +65,53 @@ const Login = () => {
     }
 
     return (
-        <form onSubmit={handleSubmit} className={styles.loginForm}>
-            <h2>Sign In</h2>
-            <input name='email'
-                placeholder='email'
-                value={form.email}
-                onChange={handleChange}
-                disabled={loading} />
-            <input name='password'
-                type='password'
-                placeholder='password'
-                value={form.password}
-                onChange={handleChange}
-                disabled={loading} />
+        <section className={styles.loginSection}>
+            <form onSubmit={handleSubmit} className={styles.loginForm}>
+                <div className={styles.arrowDiv}>
+                    <FaArrowRightToBracket className={styles.arrow} />
+                </div>
+                <h2>Sign in with email</h2>
+                <div className={styles.inputWrapper}>
+                    <MdEmail className={styles.inputIcon} />
 
-            <button type='submit' disabled={loading}>
-                {loading ? "Signing in..." : "Sign In"}
-            </button>
-            <p>Don't have an account? <Link to="/signup" className={styles.pLink}>Signup</Link></p>
+                    <input
 
-            {message && <p>{message}</p>}
+                        name='email'
+                        placeholder='Email'
+                        value={form.email}
+                        onChange={handleChange}
+                        disabled={loading} />
+                </div>
+
+                <div className={styles.inputWrapper}>
+
+                    <IoMdLock className={styles.inputIcon} />
+
+                    <input name='password'
+                        type='password'
+                        placeholder='Password'
+                        value={form.password}
+                        onChange={handleChange}
+                        disabled={loading} />
+
+                </div>
+
+                <Link to="/forgot-password" className={styles.fpLink}>Forgot password?</Link>
 
 
-        </form>
+
+                <button type='submit' disabled={loading}>
+                    {loading ? "Signing in..." : "Sign In"}
+                </button>
+                <p>Don't have an account? <Link to="/signup" className={styles.pLink}>Signup</Link></p>
+
+                {message && <p>{message}</p>}
+
+
+
+
+            </form>
+        </section>
     )
 };
 

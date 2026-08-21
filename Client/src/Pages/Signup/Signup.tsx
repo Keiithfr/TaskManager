@@ -3,6 +3,9 @@ import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import type { ChangeEvent } from 'react';
 import type { SubmitEvent } from 'react';
+import { MdEmail } from "react-icons/md";
+import { IoMdLock } from "react-icons/io";
+import { FaUser } from "react-icons/fa";
 
 const Signup = () => {
     const [form, setForm] = useState({ name: "", email: "", password: "" });
@@ -54,36 +57,55 @@ const Signup = () => {
     };
 
     return (
-        <form onSubmit={handleSubmit} className={styles.signupForm}>
-            <h2>Sign up</h2>
-            <input
-                name="name"
-                placeholder="name"
-                onChange={handleChange}
-                value={form.name}
-                disabled={loading} />
-            <input
-                name="email"
-                placeholder="email"
-                onChange={handleChange}
-                value={form.email}
-                disabled={loading} />
-            <input
-                name="password"
-                type="password"
-                placeholder="password"
-                onChange={handleChange}
-                value={form.password}
-                disabled={loading} />
 
-            <button type='submit' disabled={loading}>
-                {loading ? "Creating account..." : "Sign up"}
-            </button>
-            <p>
-                Already have an account?<Link to="/Login" className={styles.pLink}>Login</Link>
-            </p>
-            {message && <p>{message}</p>}
-        </form>
+        <section className={styles.signupSection}>
+            <form onSubmit={handleSubmit} className={styles.signupForm}>
+                <h2>Sign up</h2>
+
+                <div className={styles.inputWrapper}>
+                    <FaUser className={styles.inputIcon} />
+                    <input
+                        name="name"
+                        placeholder="name"
+                        onChange={handleChange}
+                        value={form.name}
+                        disabled={loading} />
+                </div>
+
+                <div className={styles.inputWrapper}>
+                    <MdEmail className={styles.inputIcon} />
+
+                    <input
+
+                        name='email'
+                        placeholder='Email'
+                        value={form.email}
+                        onChange={handleChange}
+                        disabled={loading} />
+                </div>
+
+                <div className={styles.inputWrapper}>
+
+                    <IoMdLock className={styles.inputIcon} />
+
+                    <input name='password'
+                        type='password'
+                        placeholder='Password'
+                        value={form.password}
+                        onChange={handleChange}
+                        disabled={loading} />
+
+                </div>
+
+                <button type='submit' disabled={loading}>
+                    {loading ? "Creating account..." : "Sign up"}
+                </button>
+                <p>
+                    Already have an account?<Link to="/Login" className={styles.pLink}>Login</Link>
+                </p>
+                {message && <p>{message}</p>}
+            </form>
+        </section>
     )
 
 
