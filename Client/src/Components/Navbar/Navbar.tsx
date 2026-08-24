@@ -27,13 +27,21 @@ const Navbar = () => {
     const location = useLocation();
     const isLandingPage = location.pathname === "/"
 
+    const handleLogo = () => {
+        if (user) {
+            navigate("/dashboard");
+        } else {
+            navigate("/")
+        }
+    };
+
 
 
 
     return (
         <nav className={styles.navbar}>
             <div className={styles.logodiv}>
-                <FaTasks className={styles.logo} />
+                <FaTasks className={styles.logo} onClick={handleLogo} />
                 <span>loscar</span>
             </div>
 
