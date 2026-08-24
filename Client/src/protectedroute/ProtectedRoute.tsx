@@ -7,7 +7,7 @@ const ProtectedRoute = () => {
 
 
     if (loading) {
-        return <p>Loading...</p>
+        return <p style={{ color: "black" }}>Loading...</p>
     }
     return user
         ? <Outlet />

@@ -5,7 +5,7 @@ const GuestRoute = () => {
     const { user, loading } = useAuth();
 
     if (loading) {
-        return null;
+        return <p style={{color:"black"}}>Loading...</p>;
     }
 
     return user
