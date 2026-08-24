@@ -5,12 +5,17 @@ import { useAuth } from "../../context/AuthContext";
 import { useLocation } from "react-router-dom";
 import { useState } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
+import { CiSearch } from "react-icons/ci";
+import { IoIosNotifications } from "react-icons/io";
+
 
 const Navbar = () => {
 
     const { user, logout, } = useAuth()
     const navigate = useNavigate();
     const [menuOpen, setMenuOpen] = useState(false);
+
+    const [searchTerm, setSearchTerm] = useState("");
 
     const handleMenuLinkClick = () => {
         setMenuOpen(false);
@@ -48,13 +53,32 @@ const Navbar = () => {
             {
                 user ? (
                     <>
-                        <div className={styles.actionsdiv}>
-                            <span className={styles.span}>Logged in as</span>
-                            <p>{user.name}</p>
-                        </div>
-                        <div className={styles.btndiv}>
+
+                        <section className={styles.navbarSection}>
+
+                            <div className={styles.searchTaskDiv}>
+                                <div className={styles.searchTaskWrapper}>
+                                    <CiSearch className={styles.searchIcon} />
+                                    <input
+                                        type="text"
+                                        placeholder="Search task"
+                                        value={searchTerm}
+                                        onChange={(e) => setSearchTerm(e.target.value)}
+                                    />
+
+                                </div>
+                            </div>
+                            <div className={styles.notificationDiv}>
+                                <IoIosNotifications className={styles.notificationIcon} />
+                            </div>
+                            <div className={styles.pfpdiv}>
+                                <img src="/user1.jpg" />
+                            </div>
+                            {/* <div className={styles.btndiv}>
                             <button onClick={handleLogout}>Logout</button>
-                        </div>
+                        </div> */}
+
+                        </section>
 
                     </>)
                     : (!user && isLandingPage && (
