@@ -7,13 +7,15 @@ import { useState } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
 import { CiSearch } from "react-icons/ci";
 import { IoIosNotifications } from "react-icons/io";
+import { useSidebar } from "../../context/SidebarContext";
 
 
 const Navbar = () => {
 
-    const { user, logout, } = useAuth()
+    const { user } = useAuth()
     const navigate = useNavigate();
     const [menuOpen, setMenuOpen] = useState(false);
+    const { toggleSidebar, sidebarOpen } = useSidebar();
 
     const [searchTerm, setSearchTerm] = useState("");
 
@@ -21,10 +23,7 @@ const Navbar = () => {
         setMenuOpen(false);
     };
 
-    const handleLogout = () => {
-        logout();
-        navigate("/login");
-    }
+
     const handleLogIn = () => {
         navigate(user ? "/dashboard" : "/login")
     }
@@ -68,15 +67,20 @@ const Navbar = () => {
 
                                 </div>
                             </div>
+
+                            <button
+                                className={styles.menuButton}
+                                onClick={toggleSidebar}
+                                aria-label="Toggle sidebar">
+                                {sidebarOpen ? <FiX /> : <FiMenu />}
+                            </button>
                             <div className={styles.notificationDiv}>
                                 <IoIosNotifications className={styles.notificationIcon} />
                             </div>
                             <div className={styles.pfpdiv}>
                                 <img src="/user1.jpg" />
                             </div>
-                            {/* <div className={styles.btndiv}>
-                            <button onClick={handleLogout}>Logout</button>
-                        </div> */}
+
 
                         </section>
 

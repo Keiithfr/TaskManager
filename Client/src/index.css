@@ -15,7 +15,7 @@
 #root {
   min-height: 100%;
   width: 100%;
-  --navbar-height: 84px;
+  --navbar-height: 72px;
 }
 
 html {
@@ -30,15 +30,18 @@ body {
   margin: 0;
   min-height: 100vh;
 
-  background: linear-gradient(160deg,
+  /* background: linear-gradient(160deg,
       #f5f5f7 0%,
       #ffffff 50%,
       #f5f5f7 100%);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed;
+  background-attachment: fixed; */
+  background-color: #fff;
 }
+
+
 
 
 p {

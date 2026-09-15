@@ -1,0 +1,317 @@
+.mainSection {
+
+    min-width: 0;
+    padding: 1.25rem;
+    box-sizing: border-box;
+}
+
+
+.top {
+
+    position: relative;
+    flex: 1;
+
+    height: clamp(280px, 50vh, 360px);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 2rem;
+
+    border-radius: 24px;
+
+    overflow: hidden;
+
+    background-image: url("/background.jpg");
+    background-size: cover;
+    background-position: center;
+
+}
+
+.heading {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    position: relative;
+    z-index: 1;
+
+}
+
+.heading h1 {
+    margin: 0;
+
+    font-size: 1.8rem;
+    font-weight: bolder;
+    color:#fff;
+}
+
+.heading span {
+    color:#fff;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.upNext {
+    width: clamp(280px, 35%, 380px);
+    padding: 1rem;
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 1;
+    background: white;
+    border-radius: 16px;
+    box-sizing: border-box;
+    flex-shrink: 1;
+
+}
+
+.nextTask {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+    align-items: flex-start;
+    padding: .3rem;
+
+}
+
+.nextTask p {
+    margin: 0;
+    padding: 0;
+    text-indent: 0;
+
+    font-size: 0.8rem;
+    font-weight: 500;
+    line-height: 1.3;
+}
+
+.nextTask span {
+    font-size: 0.7rem;
+    color: #888;
+    margin: 0;
+
+}
+
+.upNext h3 {
+
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin: 0;
+
+}
+
+@media (max-width: 768px) {
+
+    .mainSection {
+        width: 100%;
+        padding: 1rem;
+    }
+
+    .top {
+        height: auto;
+        min-height: 500px;
+        padding: 2rem 1.25rem;
+    }
+
+    .heading h1 {
+        font-size: 1.6rem;
+    }
+
+    .upNext {
+        margin-top: 1.5rem;
+    }
+}
+
+
+
+/* add task */
+
+.mainTaskContainer {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+}
+
+.addTaskContainer {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.addTaskDiv {
+    display: flex;
+    align-items: center;
+    padding: .5rem;
+    gap: 1rem;
+}
+
+
+.addTaskWrapper {
+    position: relative;
+    min-width: 0;
+    flex: 1;
+}
+
+.addTaskWrapper input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0.75rem 0.75rem 0.75rem 2rem;
+    border: none;
+    border-radius: 16px;
+    outline: none;
+    background: #f5f6f8;
+}
+
+.addTaskIcon {
+    position: absolute;
+    left: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    cursor: pointer;
+    color: #888;
+    font-size: larger;
+}
+
+.iconContainerDiv {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    gap: 1rem;
+}
+
+.iconDiv {
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    border: 1px solid gray;
+    padding: 0;
+    cursor: pointer;
+    background: transparent;
+    box-sizing: border-box;
+    transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.iconDiv:hover {
+    background: #f5f6f8;
+    border-color: #ccc;
+}
+
+.icon {
+    color: #888;
+
+}
+
+
+.customDivs {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    padding: 0 0.75rem 0.5rem;
+}
+
+.custom {
+    display: flex;
+    align-items: center;
+    gap: .2rem;
+    border-radius: 6px;
+    cursor: pointer;
+    padding: 0.35rem 0.5rem;
+    color: #777;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.custom:hover {
+    background: #f3f4f6;
+    color: #222;
+}
+
+
+.custom span {
+    font-size: small;
+}
+
+
+/* list container */
+
+.listContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.listContainer h2 {
+    font-size: 1.25rem;
+    margin: 0 0 1rem;
+}
+
+.listContainer ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.listContainer li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 0.5rem;
+    width: 100%;
+}
+
+.listIcon {
+    color: #888;
+    flex-shrink: 0;
+}
+
+.liDiv {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex: 1;
+    min-width: 0;
+}
+
+.individualLi {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 0;
+
+}
+
+.individualLi h5 {
+    margin: 0;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.individualLi span {
+    font-size: 0.75rem;
+    color: #888;
+    align-self: flex-start;
+}
+
+
+.liButton {
+    display: flex;
+    align-items: center;
+    gap: .25rem;
+    padding: .5rem;
+    background: transparent;
+    color: #888;
+    border: none;
+    cursor: pointer;
+    flex-shrink: 0;
+    width: fit-content;
+
+}

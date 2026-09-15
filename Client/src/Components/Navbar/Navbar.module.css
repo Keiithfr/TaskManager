@@ -1,7 +1,9 @@
 .navbar {
     display: flex;
-    justify-content: space-between;
+    flex: 0 1 auto;
     align-items: center;
+    justify-content: space-between;
+
     padding: 0 2rem;
     box-sizing: border-box;
     position: fixed;
@@ -9,6 +11,7 @@
     min-height: 72px;
     top: 0;
     z-index: 1000;
+    height: var(--navbar-height);
     /* background: rgba(255, 255, 255, 0.7);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px); */
@@ -16,9 +19,8 @@
 
 }
 
-.logodiv,
-.actionsdiv,
-.btndiv {
+
+.actionsdiv{
     flex: 1;
 }
 
@@ -27,6 +29,7 @@
     justify-content: flex-start;
     gap: var(--space-sm);
     align-items: center;
+    flex-shrink: 0;
 
 }
 
@@ -86,7 +89,7 @@ p {
 
 .btndiv {
     display: flex;
-    justify-content: flex-end;
+    justify-self: flex-end;
     gap: var(--space-sm);
 }
 
@@ -103,10 +106,10 @@ p {
 
 }
 
-.navbar button:hover {
+/* .navbar button:hover {
     background-color: blue;
     color: var(--text);
-}
+} */
 
 .menuButton {
     display: none;
@@ -115,10 +118,11 @@ p {
 
 
 
-@media (max-width: 767px) {
+@media (max-width: 1100px) {
     .navbar {
         width: 100%;
-        padding: var(--space-md) 1rem;
+        padding: 0 1rem;
+
 
 
     }
@@ -127,6 +131,19 @@ p {
     .actionsdiv,
     .btndiv {
         flex: none;
+    }
+
+    .logodiv {
+        flex-shrink: 0;
+        gap: 0.3rem;
+    }
+
+    .logodiv span {
+        font-size: 0.95rem;
+    }
+
+    .logo {
+        font-size: 1rem;
     }
 
 
@@ -159,8 +176,6 @@ p {
         display: flex;
         align-items: center;
         justify-content: flex-end;
-
-        margin-left: auto;
 
         background: transparent;
         border: none;
@@ -203,15 +218,17 @@ p {
 
 .navbarSection {
     margin-left: auto;
-    width: min(80%, 1000px);
-    height: 72px;
+    flex: 0 1 auto;
+    min-width: 0;
 
-
+   
 
     display: flex;
     align-items: center;
 
 
+    height: 72px;
+    width: auto;
     padding: 0 2rem;
 
     background: #ffffff;
@@ -228,6 +245,7 @@ p {
     min-width: 0;
     display: flex;
     align-items: center;
+    
 }
 
 
@@ -292,6 +310,7 @@ p {
 
     transition: background 0.2s ease;
     flex-shrink: 0;
+    
 }
 
 .notificationDiv:hover {
@@ -326,51 +345,30 @@ p {
 }
 
 
+
+
 @media (max-width: 768px) {
-    .navbarSection {
-        width: 80%;
-        height: 64px;
-        padding: 0 1rem;
-        margin-left: 0;
-    }
-
-    .searchTaskWrapper {
-        width: 200px;
-    }
-
-    .notificationDiv {
-        margin-right: 0.5rem;
-    }
-
-    .pfpdiv {
-        width: 36px;
-        height: 36px;
-    }
-}
-
-@media (max-width: 500px) {
-    .searchTaskWrapper {
-        width: 150px;
-    }
-}
-
-@media (max-width: 600px) {
-
     .navbarSection {
         width: auto;
         height: 64px;
-        padding: 0;
+        margin-left: auto;
 
+
+
+
+        gap: 0.1rem;
+
+
+        padding: 0;
         background: transparent;
         border: none;
         border-radius: 0;
 
-        gap: 0.5rem;
     }
 
     .searchTaskWrapper {
-        width: 40px;
-        height: 40px;
+        width: 30px;
+        height: 30px;
 
         display: flex;
         align-items: center;
@@ -388,31 +386,49 @@ p {
         display: none;
     }
 
+
+
     .searchIcon {
         position: static;
         transform: none;
-        font-size: 1.4rem;
+        font-size: 1.25rem;
         color: #555;
     }
 
 
-    .searchIcon {
-        position: static;
-        transform: none;
 
-        font-size: 1.4rem;
-    }
 
     .notificationDiv {
-        width: 40px;
-        height: 40px;
+        width: 30px;
+        height: 30px;
         margin-right: 0;
+        flex-shrink: 0;
+
+    }
+
+    .notificationIcon {
+        font-size: 1.2rem;
     }
 
     .pfpdiv {
-        width: 36px;
-        height: 36px;
+        width: 32px;
+        height: 32px;
+        flex-shrink: 0;
     }
 
 
 }
+
+@media (max-width:450px) {
+    .navbarSection {
+        justify-content: center;
+    }
+
+    .searchTaskDiv {
+        flex: none;
+        width: 32px;
+        min-width: 32px;
+    }
+
+}
+

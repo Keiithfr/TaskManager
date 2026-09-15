@@ -9,12 +9,15 @@ import ProtectedRoute from './protectedroute/ProtectedRoute';
 import GuestRoute from './protectedroute/GuestRoute';
 import ForgotPassword from './Pages/ForgotPassword/ForgotPassword';
 import ResetPassword from './Pages/RestPassword/ResetPassword';
+import { SidebarProvider } from './context/SidebarContext';
 
 
 function App() {
 
   return (
     <>
+
+    <SidebarProvider>
 
       <Navbar />
 
@@ -41,6 +44,8 @@ function App() {
 
 
       </Routes>
+
+      </SidebarProvider>
 
 
 

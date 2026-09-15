@@ -1,0 +1,132 @@
+.timerSection {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+    gap: 1rem;
+    border-radius: 16px;
+    background-image: url("/background.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.header h3 {
+    color: #fff;
+}
+
+.timerBody {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-self: center;
+    gap: 1rem;
+}
+
+.timer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+}
+
+.timer h3 {
+    color: #fff;
+}
+
+.iconDiv {
+    border: none;
+    outline: none;
+    padding: 0;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    background-color: #D60;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+}
+
+.iconDiv:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.icon {
+    color: #fff;
+    height: 18px;
+    width: 18px;
+}
+
+.start {
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: .5rem;
+    gap: .5rem;
+    background-color: #fff;
+    border-radius: 10px;
+    cursor: pointer;
+
+}
+
+.start:disabled{
+    cursor: not-allowed;
+}
+
+.start span {
+    font-weight: 600;
+    color: #222;
+}
+
+.playDiv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: #D60;
+    width: 24px;
+    height: 24px;
+
+
+
+}
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: centerdash;
+    gap: .75rem;
+}
+
+
+
+.resetDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #D60;
+    border-radius: 10px;
+    cursor: pointer;
+    padding: 0.1rem 0.1rem 0.1rem;
+
+
+
+}
+
+.completeMessage {
+    margin: 0;
+    color: #fff;
+    font-size: .9rem;
+    font-weight: 600;
+}
