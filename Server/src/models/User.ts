@@ -20,8 +20,12 @@ const userSchema = new Schema({
     },
     profileImage: {
         type: String,
-        default: " ",
+        default: null,
 
+    },
+    profileImagePublicId: {
+        type: String,
+        default: null
     },
     resetPasswordToken: {
         type: String,
