@@ -8,6 +8,7 @@ import { FiMenu, FiX } from "react-icons/fi";
 import { CiSearch } from "react-icons/ci";
 import { IoIosNotifications } from "react-icons/io";
 import { useSidebar } from "../../context/SidebarContext";
+import Pfp from "../pfp/pfp";
 
 
 const Navbar = () => {
@@ -77,9 +78,7 @@ const Navbar = () => {
                             <div className={styles.notificationDiv}>
                                 <IoIosNotifications className={styles.notificationIcon} />
                             </div>
-                            <div className={styles.pfpdiv}>
-                                <img src="/user1.jpg" />
-                            </div>
+                            <Pfp />
 
 
                         </section>

@@ -3,7 +3,8 @@ import express from "express";
 import cors from "cors";
 import { connectDB } from "./db/connect.js";
 import authRoutes from "./routes/auth.js";
-import contactRoutes from "./routes/contactRoutes.js"
+import contactRoutes from "./routes/contactRoutes.js";
+import userRoutes from "./routes/userRoutes.js"
 import cookieParser from "cookie-parser";
 
 
@@ -19,6 +20,7 @@ await connectDB();
 app.use(cookieParser());
 app.use("/api/auth", authRoutes);
 app.use("/api/contact", contactRoutes);
+app.use("/api/users", userRoutes);
 
 
 app.listen(5000, () => {

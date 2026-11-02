@@ -2,6 +2,7 @@ export interface User {
     id: string;
     name: string;
     email: string;
+    profileImage: string;
 }
 
 export interface AuthContextType {
@@ -10,6 +11,7 @@ export interface AuthContextType {
     login: (userData: User
     ) => void;
     logout: () => Promise<void>
+    updateUser: (userData: Partial<User>) => void;
 }
 
 

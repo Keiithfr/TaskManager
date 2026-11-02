@@ -322,28 +322,6 @@ p {
     color: #555;
 }
 
-.pfpdiv {
-    width: 40px;
-    height: 40px;
-
-    border-radius: 50%;
-
-    overflow: hidden;
-    flex-shrink: 0;
-    cursor: pointer;
-
-    background: #e5e7eb;
-}
-
-.pfpdiv img {
-    width: 100%;
-    height: 100%;
-
-    display: block;
-
-    object-fit: cover;
-}
-
 
 
 

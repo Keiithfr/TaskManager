@@ -18,7 +18,7 @@ const AuthProvider = ({ children }: Props) => {
         const fetchUser = async () => {
             try {
                 const res = await fetch(
-                    `${import.meta.env.VITE_API_URL}/me`, {
+                    `${import.meta.env.VITE_API_URL}/auth/me`, {
                     credentials: "include"
                 }
                 );
@@ -48,6 +48,17 @@ const AuthProvider = ({ children }: Props) => {
         setUser(userData)
 
     }
+
+    const updateUser = (userData: Partial<User>) => {
+        setUser((currentUser) => {
+            if (!currentUser) return null;
+
+            return {
+                ...currentUser,
+                ...userData
+            }
+        })
+    }
     const logout = async () => {
         try {
             await fetch(
@@ -76,7 +87,7 @@ const AuthProvider = ({ children }: Props) => {
 
     return (
         <AuthContext.Provider value={{
-            user, loading, login, logout
+            user, loading, login, logout, updateUser
         }}>
             {children}
         </AuthContext.Provider>

@@ -1,0 +1,34 @@
+.pfpdiv {
+    width: 40px;
+    height: 40px;
+
+    border-radius: 50%;
+
+    overflow: hidden;
+    flex-shrink: 0;
+    cursor: pointer;
+
+    background: #e5e7eb;
+}
+
+.pfpdiv img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+}
+
+
+
+@media (max-width: 768px) {
+
+    .pfpdiv {
+        width: 32px;
+        height: 32px;
+        flex-shrink: 0;
+    }
+
+
+}

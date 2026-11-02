@@ -1,6 +1,5 @@
 import './styles/variables.css';
 import { Routes, Route } from "react-router-dom";
-import Navbar from './Components/Navbar/Navbar';
 import Login from './Pages/Login/Login';
 import Signup from './Pages/Signup/Signup';
 import Home from './Pages/Home/Home';
@@ -10,6 +9,8 @@ import GuestRoute from './protectedroute/GuestRoute';
 import ForgotPassword from './Pages/ForgotPassword/ForgotPassword';
 import ResetPassword from './Pages/RestPassword/ResetPassword';
 import { SidebarProvider } from './context/SidebarContext';
+import EditProfile from './Components/Profile/Profile';
+import AppLayout from './Components/AppLayout/AppLayout';
 
 
 function App() {
@@ -17,33 +18,38 @@ function App() {
   return (
     <>
 
-    <SidebarProvider>
-
-      <Navbar />
-
-
-      <Routes>
-        <Route element={<GuestRoute />}>
-          <Route path='/' element={<Home />} />
-          <Route path='/login' element={<Login />} />
-          <Route path='/signup' element={<Signup />} />
-          <Route path="/forgot-password" element={<ForgotPassword />} />
-
-        </Route>
-
-        <Route element={<ProtectedRoute />}>
-          <Route path='/dashboard' element={<Dashboard />} />
-
-        </Route>
-
-
-
-        <Route path="/reset-password/:token" element={<ResetPassword />} />
+      <SidebarProvider>
 
 
 
 
-      </Routes>
+        <Routes>
+          <Route element={<GuestRoute />}>
+            <Route element={<AppLayout />}>
+              <Route path='/' element={<Home />} />
+              <Route path='/login' element={<Login />} />
+              <Route path='/signup' element={<Signup />} />
+              <Route path="/forgot-password" element={<ForgotPassword />} />
+            </Route>
+
+          </Route>
+
+          <Route element={<ProtectedRoute />}>
+            <Route element={<AppLayout />}>
+              <Route path='/dashboard' element={<Dashboard />} />
+            </Route>
+            <Route path='/edit-profile' element={<EditProfile />} />
+
+          </Route>
+
+
+
+          <Route path="/reset-password/:token" element={<ResetPassword />} />
+
+
+
+
+        </Routes>
 
       </SidebarProvider>
 

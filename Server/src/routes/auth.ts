@@ -3,9 +3,10 @@ import "express";
 import { User } from "../models/User.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
-import type { Request, Response, NextFunction } from "express";
+import authMiddleware from "../middleware/authMiddleware.js";
 import { forgotPasswordController } from "../controllers/forgotPasswordController.js";
 import { resetPasswordController } from "../controllers/resetPasswordController.js";
+
 
 const router = Router();
 
@@ -14,16 +15,6 @@ if (!JWT_SECRET) {
     throw new Error("JWT_SECRET is missing")
 }
 
-declare global {
-    namespace Express {
-        interface Request {
-            user?: AuthPayload;
-        }
-    }
-}
-interface AuthPayload extends jwt.JwtPayload {
-    id: string;
-}
 
 router.post("/signup", async (req, res) => {
     try {
@@ -104,7 +95,8 @@ router.post("/login", async (req, res) => {
             user: {
                 id: user._id,
                 name: user.name,
-                email: user.email
+                email: user.email,
+                profileImage: user.profileImage
             }
         });
 
@@ -131,29 +123,7 @@ router.post("/reset-Password/:token", resetPasswordController);
 
 
 
-const authMiddleware = (req: Request,
-    res: Response,
-    next: NextFunction) => {
-    const token = req.cookies.token;
-    if (!token) {
-        return res.status(401).json({
-            message: "Kindly log in"
-        });
-    }
 
-    try {
-        const decoded = jwt.verify(
-            token,
-            JWT_SECRET
-        ) as AuthPayload;
-        req.user = decoded;
-        next();
-    } catch (err) {
-        res.status(401).json({
-            message: "Invalid login token"
-        })
-    }
-};
 
 router.get("/me", authMiddleware, async (req, res) => {
     try {
