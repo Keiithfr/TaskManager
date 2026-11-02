@@ -4,7 +4,8 @@ import cors from "cors";
 import { connectDB } from "./db/connect.js";
 import authRoutes from "./routes/auth.js";
 import contactRoutes from "./routes/contactRoutes.js";
-import userRoutes from "./routes/userRoutes.js"
+import userRoutes from "./routes/userRoutes.js";
+import taskRoutes from "./routes/taskRoutes.js"
 import cookieParser from "cookie-parser";
 
 
@@ -21,6 +22,8 @@ app.use(cookieParser());
 app.use("/api/auth", authRoutes);
 app.use("/api/contact", contactRoutes);
 app.use("/api/users", userRoutes);
+app.use("/api/tasks", taskRoutes);
+
 
 
 app.listen(5000, () => {
