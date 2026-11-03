@@ -5,6 +5,8 @@ import { IoCalendarClearOutline } from "react-icons/io5";
 import { GoClock } from "react-icons/go";
 import { FaAngleRight } from "react-icons/fa";
 import { FaRegSquare } from "react-icons/fa";
+import type { Task } from "../../types/auth";
+import { useState, useEffect } from "react";
 
 
 
@@ -12,6 +14,48 @@ import { FaRegSquare } from "react-icons/fa";
 
 const DashboardHome = () => {
     const { user } = useAuth();
+
+    const [tasks, setTasks] = useState<Task[]>([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const fetchTasks = async () => {
+            try {
+                const res = await fetch(
+                    `${import.meta.env.VITE_API_URL}/tasks/get-tasks`, {
+                    credentials: "include"
+                }
+                );
+
+                if (!res.ok) {
+                    throw new Error("Failed to fetch tasks");
+                }
+                const data: { tasks: Task[] } = await res.json();
+
+                setTasks(data.tasks)
+
+            } catch (err) {
+                console.error(err)
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchTasks();
+    }, [])
+
+
+    // const handleAddTask=()=>{
+
+    //     const res=await fetch(
+    //         `${import.meta.env.VITE_API_URL}/tasks/add-tasks`,
+    //         {
+    //                 method: "POST",
+    //                 credentials: "include",
+    //                 body: JSON,
+    //         }
+    //     )
+    // }
 
 
 
