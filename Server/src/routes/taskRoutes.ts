@@ -28,9 +28,30 @@ router.post("/", authMiddleware,
                 task
             });
         } catch (err) {
+            console.error(err);
             res.status(500).json({
                 message: "Server error"
             });
+        }
+
+    });
+
+
+router.get("/", authMiddleware,
+    async (req, res) => {
+        try {
+            const tasks = await Task.find({
+                userId: req.user!.id
+            }).sort({ createdAt: -1 });
+
+            return res.status(200).json({ tasks })
+
+        } catch (err) {
+            console.error(err)
+
+            return res.status(500).json({
+                message: "Server error"
+            })
         }
 
     })

@@ -19,11 +19,11 @@ export interface Task {
     userId: string;
     title: string;
     category: string;
-    dueDate: Date | null;
+    dueDate: string | null;
     dueTime: string | null;
     completed: boolean;
-    createdAt: Date;
-    updatedAt: Date;
+    createdAt: string;
+    updatedAt: string;
 
 }
 
