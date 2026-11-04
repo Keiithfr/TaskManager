@@ -12,11 +12,13 @@ import { useState, useEffect } from "react";
 
 
 
+
 const DashboardHome = () => {
     const { user } = useAuth();
 
     const [tasks, setTasks] = useState<Task[]>([]);
     const [loading, setLoading] = useState(true);
+    const [newTask, setNewTask] = useState("");
 
     useEffect(() => {
         const fetchTasks = async () => {
@@ -32,7 +34,8 @@ const DashboardHome = () => {
                 }
                 const data: { tasks: Task[] } = await res.json();
 
-                setTasks(data.tasks)
+                setTasks(data.tasks);
+                console.log(data.tasks);
 
             } catch (err) {
                 console.error(err)
@@ -45,17 +48,43 @@ const DashboardHome = () => {
     }, [])
 
 
-    // const handleAddTask=()=>{
+    const handleAddTask = async () => {
+        if (!newTask.trim()) return
 
-    //     const res=await fetch(
-    //         `${import.meta.env.VITE_API_URL}/tasks/add-tasks`,
-    //         {
-    //                 method: "POST",
-    //                 credentials: "include",
-    //                 body: JSON,
-    //         }
-    //     )
-    // }
+        try {
+            const res = await fetch(
+                `${import.meta.env.VITE_API_URL}/tasks/add-tasks`,
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    credentials: "include",
+                    body: JSON.stringify({
+                        title: newTask,
+                        category: "Inbox"
+                    })
+                }
+            );
+
+            if (!res.ok) {
+                throw new Error("Failed to create task");
+            }
+
+            const data = await res.json();
+            setTasks((prevTasks) => [data.task, ...prevTasks]);
+            setNewTask("");
+
+
+
+
+
+        } catch (err) {
+            console.error(err)
+        }
+
+
+    }
 
 
 
@@ -94,6 +123,13 @@ const DashboardHome = () => {
                             <IoIosAddCircle className={styles.addTaskIcon} />
                             <input
                                 placeholder="Add task"
+                                value={newTask}
+                                onChange={(e) => setNewTask(e.target.value)}
+                                onKeyDown={(e) => {
+                                    if (e.key === "Enter") {
+                                        handleAddTask();
+                                    }
+                                }}
                             />
                         </div>
                         <div className={styles.iconContainerDiv}>
@@ -131,48 +167,26 @@ const DashboardHome = () => {
                 {/* List container */}
 
                 <div className={styles.listContainer}>
+
+                    {tasks.length === 0 && <p>No tasks yet. Add one above!</p>}
                     <h2>Today's List</h2>
 
                     <ul>
-                        <li>
-                            <FaRegSquare className={styles.listIcon} />
-                            <div className={styles.liDiv}>
-                                <div className={styles.individualLi}>
-                                    <h5>Study</h5>
-                                    <span>Inbox</span>
+                        {tasks.map((task) => (
+                            <li key={task._id}>
+                                <FaRegSquare className={styles.listIcon} />
+
+                                <div className={styles.liDiv}>
+                                    <div className={styles.individualLi}>
+                                        <h5>{task.title}</h5>
+                                        <span>{task.category}</span>
+                                    </div>
+
                                 </div>
-                                <button className={styles.liButton}>
-                                    <span>9:30AM</span>
-                                    <FaAngleRight />
-                                </button>
-                            </div>
-                        </li>
-                        <li>
-                            <FaRegSquare className={styles.listIcon} />
-                            <div className={styles.liDiv}>
-                                <div className={styles.individualLi}>
-                                    <h5>Client meeting preparation</h5>
-                                    <span>Work</span>
-                                </div>
-                                <button className={styles.liButton}>
-                                    <span>11:30AM</span>
-                                    <FaAngleRight />
-                                </button>
-                            </div>
-                        </li>
-                        <li>
-                            <FaRegSquare className={styles.listIcon} />
-                            <div className={styles.liDiv}>
-                                <div className={styles.individualLi}>
-                                    <h5>Health care</h5>
-                                    <span>Inbox</span>
-                                </div>
-                                <button className={styles.liButton}>
-                                    <span>14:30PM</span>
-                                    <FaAngleRight />
-                                </button>
-                            </div>
-                        </li>
+
+                            </li>
+                        ))}
+
                     </ul>
 
                 </div>
