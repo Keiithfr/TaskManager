@@ -4,14 +4,14 @@ import Task from "../models/Task.js";
 
 const router = Router();
 
-router.post("/", authMiddleware,
+router.post("/add-tasks", authMiddleware,
     async (req, res) => {
 
         try {
             const { title, category, dueDate, dueTime } = req.body;
             if (!title || !title.trim()) {
                 return res.status(400).json({
-                    message: "Tak title is required"
+                    message: "Task title is required"
                 });
             }
 
@@ -37,7 +37,7 @@ router.post("/", authMiddleware,
     });
 
 
-router.get("/", authMiddleware,
+router.get("/get-tasks", authMiddleware,
     async (req, res) => {
         try {
             const tasks = await Task.find({
