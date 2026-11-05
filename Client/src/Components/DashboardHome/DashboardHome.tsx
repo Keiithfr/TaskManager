@@ -3,7 +3,7 @@ import { useAuth } from "../../context/AuthContext";
 import { IoIosAddCircle } from "react-icons/io";
 import { IoCalendarClearOutline } from "react-icons/io5";
 import { GoClock } from "react-icons/go";
-import { FaAngleRight } from "react-icons/fa";
+// import { FaAngleRight } from "react-icons/fa";
 import { FaRegSquare } from "react-icons/fa";
 import type { Task } from "../../types/auth";
 import { useState, useEffect } from "react";
@@ -75,10 +75,6 @@ const DashboardHome = () => {
             setTasks((prevTasks) => [data.task, ...prevTasks]);
             setNewTask("");
 
-
-
-
-
         } catch (err) {
             console.error(err)
         }
@@ -86,10 +82,45 @@ const DashboardHome = () => {
 
     }
 
+    const toggleTask = async (task: Task) => {
+        try {
+
+            const res = await fetch(
+                `${import.meta.env.VITE_API_URL}/tasks/${task._id}`,
+                {
+                    method: "PATCH",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    credentials: "include",
+                    body: JSON.stringify({
+                        completed: !task.completed
+                    })
+                }
+
+            );
+
+            if (!res.ok) {
+                throw new Error("Failed to update task");
+            }
+
+            const data: { task: Task } = await res.json();
+
+            setTasks((prevTasks) =>
+                prevTasks.map((item) =>
+                    item._id === task._id ? data.task : item)
+            );
+
+        } catch (err) {
+            console.error(err);
+        }
+    }
+
 
 
     return (
         <section className={styles.mainSection}>
+            {loading && <h1>Loading...</h1>}
 
             <div className={styles.top}>
 
@@ -174,11 +205,19 @@ const DashboardHome = () => {
                     <ul>
                         {tasks.map((task) => (
                             <li key={task._id}>
-                                <FaRegSquare className={styles.listIcon} />
+                                <button
+                                    type="button"
+                                    onClick={() => toggleTask(task)}
+                                    className={`${styles.completeButton} ${task.completed ? styles.completed : ""
+                                        }`}
+                                >
+                                    {task.completed ? "✓" : <FaRegSquare className={styles.listIcon} />}
+                                </button>
 
                                 <div className={styles.liDiv}>
                                     <div className={styles.individualLi}>
-                                        <h5>{task.title}</h5>
+                                        <h5 className={task.completed ? styles.completedTitle : ""}
+                                        >{task.title}</h5>
                                         <span>{task.category}</span>
                                     </div>
 

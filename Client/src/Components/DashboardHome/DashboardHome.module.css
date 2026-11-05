@@ -43,11 +43,11 @@
 
     font-size: 1.8rem;
     font-weight: bolder;
-    color:#fff;
+    color: #fff;
 }
 
 .heading span {
-    color:#fff;
+    color: #fff;
     font-size: 1rem;
     font-weight: bold;
 }
@@ -314,4 +314,33 @@
     flex-shrink: 0;
     width: fit-content;
 
+}
+
+.completeButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    border: none;
+    background: transparent;
+    color: #999;
+    font-size: 17px;
+    cursor: pointer;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.completeButton:hover {
+    color: #232af7;
+    transform: scale(1.1);
+}
+
+.completed {
+    color: #232af7;
+}
+
+.completedTitle {
+    text-decoration: line-through;
+    color: #999;
 }
